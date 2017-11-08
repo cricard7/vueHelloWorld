@@ -1,0 +1,27 @@
+h4 {
+	background-color: darkgray;
+	font-size: 2em;
+}
+
+.red {
+	background-color: red;
+}
+
+.orange {
+	background-color: orange;
+}
+.hot{
+	
+	background-color: red;
+	color: green;
+}
+.blue{
+	
+	background-color: blue;
+}
+
+.component{
+	margin-top: 20px;
+	padding: 15px;
+	border: solid 1px black;
+}

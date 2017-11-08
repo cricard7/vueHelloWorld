@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- jquery  -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	
+	<script src="https://unpkg.com/vue"></script>
+	<link href="style.css" type="text/css" rel="stylesheet">
+	<script src="scripts/v-autocomplete.js"></script>
+	<link href="scripts/v-autocomplete.css" type="text/css" rel="stylesheet">
+	
+	<title>Vue JS</title>
+</head>
+
+<body>
+	<h1>Hi</h1>
+
+	<div id="vueApp">
+		{{msg}}
+
+		<h4 class="red">arrays</h4>
+		<ol>
+			<li v-for="item in items">
+				{{item}}
+			</li>
+		</ol>
+
+		<h4>objects</h4>
+		<ul>
+			<li v-for="mitem in multiItems">
+				Name: {{mitem.name}}, Cost: ${{mitem.cost}}
+			</li>
+		</ul>
+
+
+		<h4>dynamic databinding to href of anchor tag</h4>
+		<!-- note href={{testURL}} will not work. Must use :href="testURL" or v-bind:href="testURL"  -->
+		<a :href="testURL">lynda.com link</a><br>
+		<a :href="testURL + '?something'">link with bound query string</a>
+
+		<h4>Two way data binding using v-model</h4>
+		<div>
+			<label for="entry">Entry</label>
+			<input type="text" v-model="textEntry"> <br>
+			<h2>{{textEntry}}</h2>
+		</div>
+
+
+		<h4>Checkboxs with databinding v-model</h4>
+		<div>
+			<input type="checkbox" v-model="selected" value="One"> One
+			<input type="checkbox" v-model="selected" value="Two"> Two
+			<input type="checkbox" v-model="selected" value="Three"> Three
+			<br>
+			<h2>{{selected}}</h2>
+			<ul>
+				<li v-for="item in selected"> {{item}}</li>
+			</ul>
+		</div>
+
+		<h4>Dynamic Checkboxes with databinding v-model and v-show, v-if, v-else-if and v-else directive</h4>
+		<div>
+			<div v-for="number in dynItems">
+				<input type="checkbox" v-model="selectedDynItems" :value="number"> {{number}}
+				<br>
+			</div>
+			<!-- v-show hide element if the boolean expression is false  -->
+			<!-- v-if removes the element from the dom if the expression is false  -->
+			<!-- v-else executes immediately after a v-if  -->
+			<!-- v-else-if executes after first if and if the condition is true-->
+			<h2 v-if="selectedDynItems.length === 3">You selected everything!</h2>
+			<h2 v-else-if="selectedDynItems.length > 0">You selected:</h2>
+
+			<h2 v-else>Nothing selected</h2>
+
+			<h2 v-show="selectedDynItems.length > 0">{{selectedDynItems}}</h2>
+			<ul>
+				<li v-for="item in selectedDynItems"> {{item}}</li>
+			</ul>
+		</div>
+
+		<h4>v-for loop types</h4>
+
+		<ol>
+			<li>Looping over multiple props by name with index
+
+				<ul>
+					<li v-for="item, index in loopObjArray">name:{{item.name}} type:{{item.type}} index: {{index}}</li>
+				</ul>
+			</li>
+			<li>Loop over multiple items with key Val
+				<ul>
+					<li v-for="(propOne, propTwo) in loopObjArray">
+						{{propOne}} : {{propTwo}}
+					</li>
+				</ul>
+			</li>
+			<li>Looping based on numbers</li>
+			<ul>
+				<li v-for="i in 10">{{i}}</li>
+			</ul>
+		</ol>
+
+		<h4>Event Handlers</h4>
+		<div>
+			<button v-on:click="eventMsg = 'clicked!' "> Click me</button> {{eventMsg}}
+			<br>
+			<button v-on:click="greeting('chazz', $event)"> or me</button>
+			<br>
+			<!-- shorthand  -->
+			<button @click="greeting">or me</button>
+
+			<!-- keyup shorthand. Can also use keycodes  -->
+
+			<br>
+			<h5>push enter on input</h5>
+			<input v-model="inputEvent" v-on:keyup.enter="eventMsg = inputEvent">
+
+		</div>
+
+		<h4>binding to classes</h4>
+		<button @click="isHot = !isHot" :class="{hot: isHot}">Click to Toggle Class</button>
+
+		<h4>computer properties</h4>
+		<h6>Carboplatin</h6>
+		<label>age</label><input type="number" v-model.number="scrAge">
+		<label>weight kg</label>
+		<input type="number" v-model.number="scrWt">
+		<label>Height in cm</label>
+		<input type="number" v-model.number="scrHt">
+		<label>Scr</label>
+		<input type="number" v-model.number="scr">
+		<br>
+		<label>AUC</label>
+		<input type="number" v-model.number="AUC">
+		<br>
+		<label>Male</label><input type="radio" value="male" name="sex" v-model="sex">
+		<label>Female</label><input type="radio" value="female" name="sex" v-model="sex">
+
+		<ul>
+			<li>Age: {{scrAge}}</li>
+			<li>Wt: {{scrWt}}</li>
+			<li>Ht: {{scrHt}}</li>
+			<li>Src: {{scr}}</li>
+			<li>AUC: {{AUC}}</li>
+			<li>Sex: {{sex}}</li>
+			<li>ibw: {{idealWt}}</li>
+			<br>
+			<li>CrClIBW: {{CrClIBW}}</li>
+			<li>Carbo Dose IBW: {{carboIBW}}</li>
+			<br>
+			<li>CrClABW: {{CrClABW}}</li>
+			<li>Carbo Dose ABW: {{carboABW}}</li>
+
+		</ul>
+
+
+		<h4>Watch</h4>
+		<p>Type "cats" to search to cat gifs using watch on the gifSearch property</p>
+		<input type="text" v-model="gifSearch">
+
+		<p>Gifs</p>
+		<div v-for="gifURL in gifs">
+
+			<img :src="gifURL">
+
+		</div>
+
+		<h4>components</h4>
+		
+		<p>This is a global component with information from a template</p>
+		
+		<global-component></global-component>
+		<local-component></local-component>
+		<local-component></local-component>
+		<local-component></local-component>
+
+		<h4>components with props</h4>
+
+		<p>This component accepts a title property</p>
+		<prop-component title = "A title"></prop-component>
+		
+		<!-- medInfo is passed into the medlist component. notice how the prop meds is declared with the v-bind shorthand. Otherwise just a string would be passed in to meds  -->
+
+		<med-list :meds="medInfo"></med-list>
+		
+	</div>
+	<script src="script.js"></script>
+</body>
+
+</html>

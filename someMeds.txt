@@ -1,0 +1,66 @@
+[
+	{
+		"ID": 1,
+		"title": "Title 1",
+		"status": "restricted",
+		"criteria": "for the treatment of fkslfjlskdjf",
+		"DSG": ["GAST", "THOR"],
+		"img": "https://img.pokemondb.net/artwork/bulbasaur.jpg"
+},
+	{
+		"ID": 2,
+		"title": "Title 2",
+		"status": "formulary",
+		"criteria": "for the XXadfjdskf",
+		"DSG": ["BRST", "BMT", "LEUK"],
+		"img": "https://img.pokemondb.net/artwork/charmander.jpg"
+},
+	{
+		"ID": 3,
+		"title": "Title 3",
+		"status": "not recommended",
+		"criteria": "for the zzsf sdf sdf",
+		"DSG": ["ENDO"],
+		"img": "https://img.pokemondb.net/artwork/butterfree.jpg"
+},
+	{
+		"ID": 4,
+		"title": "Title 4",
+		"status": "recommended",
+		"criteria": "for the treatment cccc dfsfkj ",
+		"DSG": ["CUTA", "LYMP"],
+		"img": "https://img.pokemondb.net/artwork/arbok.jpg"
+},
+	{
+		"ID": 5,
+		"title": "Title 5",
+		"status": "formulary",
+		"criteria": "for the treatment cccc dfsfkj ",
+		"DSG": ["CUTA", "LYMP"],
+		"img": "https://img.pokemondb.net/artwork/pikachu.jpg"
+},
+	{
+		"ID": 6,
+		"title": "Title 6",
+		"status": "non-formulary",
+		"criteria": "for the treatment cccc dfsfkj ",
+		"DSG": ["CUTA", "LYMP"],
+		"img": "https://img.pokemondb.net/artwork/lickitung.jpg"
+},
+	{
+		"ID": 7,
+		"title": "Title 7",
+		"status": "recommended",
+		"criteria": "for the treatment cccc dfsfkj ",
+		"DSG": ["CUTA", "LYMP"],
+		"img": "https://img.pokemondb.net/artwork/vulpix.jpg"
+},
+	{
+		"ID": 8,
+		"title": "Title 8",
+		"status": "recommended",
+		"criteria": "for the treatment cccc dfsfkj ",
+		"DSG": ["CUTA", "LYMP"],
+		"img": "https://img.pokemondb.net/artwork/mew.jpg"
+}
+]
